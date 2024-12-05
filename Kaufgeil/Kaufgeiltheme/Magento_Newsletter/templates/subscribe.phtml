@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Newsletter\Block\Subscribe $block */
+?>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="newsletter-main">
+            <div class="newsletter-content">
+                <div class="bg-white">
+                    <h2>Newsletter abonnieren und sparen!</h2>
+                    <p>Geben Sie Ihre E-Mail-Adresse ein, und beim nächsten Einkauf sparen.</p>
+
+                    <form class="newsletter-form" novalidate action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>" method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                        id="newsletter-validate-detail">
+                        <input name="email" class="email-msubscribe" type="email" id="newsletter"
+                               placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>"
+                               data-mage-init='{"mage/trim-input":{}}'
+                               data-validate="{required:true, 'validate-email':true}" />
+                        
+                        <div class="msubscribe-btnsec">
+                           <button class="action subscribe msub-btn"
+                                    title="<?= $block->escapeHtmlAttr(__('ABSENDEN')) ?>"
+                                    type="submit"
+                                    aria-label="Subscribe">
+                                <span><?= $block->escapeHtml(__('ABSENDEN')) ?></span>
+                            </button>
+                        </div>
+                    </form>
+                        <p><a href="#">Abmeldung jederzeit möglich</a></p>
+                </div>
+            </div>
+            <div class="black-opium-image">
+                <img src="<?php echo $block->getViewFileUrl('images/blackopti.jpg'); ?>" alt="Black Opium Yves Saint Laurent">
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -10,19 +10,19 @@
 $storeName = $block->getThemeName() ? $block->getThemeName() : $block->getLogoAlt()
 ?>
 <!-- <span data-action="toggle-nav" class="action nav-toggle"><span><?= $block->escapeHtml(__('Toggle Nav')) ?></span></span> -->
-<div class="d-flex mx-2 justify-content-center">
+
 <a
-    class="navbar-brand header_logo"
+    class="navbar-brand"
     href="<?= $block->escapeUrl($block->getUrl('')) ?>"
     title="<?= $block->escapeHtmlAttr($storeName) ?>"
     aria-label="store logo">
-    <img src="<?= $block->escapeUrl($block->getLogoSrc()) ?>"
+    <img src="<?= $this->getViewFileUrl('images/logo.png'); ?>"
          title="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
          alt="<?= $block->escapeHtmlAttr($block->getLogoAlt()) ?>"
             <?= $block->getLogoWidth() ? 'width="' . $block->escapeHtmlAttr($block->getLogoWidth()) . '"' : '' ?>
             <?= $block->getLogoHeight() ? 'height="' . $block->escapeHtmlAttr($block->getLogoHeight()) . '"' : '' ?>
     />
-    <!-- <img class="our-partner-logo" src="<?php echo $block->getViewFileUrl('images/storeadobe-partner1.png'); ?>" alt="bluethink-adobe-partner"> -->
+
 </a>
-</div>
+
 

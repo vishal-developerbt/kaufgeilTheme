@@ -1,0 +1,156 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit);
+ $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of Object Manager
+ $categoryFactory = $objectManager->get('\Magento\Catalog\Model\CategoryFactory');// Instance of Category Model
+ $categoryId = 2; // YOUR CATEGORY ID
+ $category = $categoryFactory->create()->load($categoryId);
+
+
+ // Parent Categories
+ $parentCategories = $category->getParentCategories();
+
+ // Children  Categories
+ $childrenCategories = $category->getChildrenCategories();
+
+  // echo  $category->getName(); die;
+//echo "<pre>"; print_r(get_class_methods($childrenCategories));  die;
+
+// foreach ($childrenCategories as $key => $cat) {
+// echo "<pre>"; 
+// print_r(get_class_methods($cat)); die;
+//       echo  $cat->getName();
+
+
+//      $childrenCategories1 = $cat->getChildrenCategories();
+// foreach ($childrenCategories1 as $key => $cat1) {
+
+//  echo $cat1->getName();
+
+//  $childrenCategories2 = $cat1->getChildrenCategories();
+// foreach ($childrenCategories1 as $key => $cat2) {
+// echo $cat2->getName();
+// }
+// }
+
+
+// }
+// die;
+?>
+
+
+   <div class="menu-items">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="navbar-nav d-flex">
+                        <li class="nav-item active">
+                            <a class="nav-link ss" href="<?php echo $block->getBaseUrl(); ?>"> <span><img src="<?php echo $block->getViewFileUrl('images/home-svgrepo-com.svg'); ?>"
+                                        alt="image"></span>
+                                START</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><span><img src="<?php echo $block->getViewFileUrl('images/cart-shopping-svgrepo-com.svg'); ?>"
+                                        alt="image"></span> ALLE PRODUKTE</a>
+                        </li>
+
+<?php foreach ($childrenCategories as $key => $cat) { ?>                        
+                    <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="<?php echo  $cat->getUrl();?>" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><img src="<?php echo $block->getViewFileUrl('images/perfume.svg'); ?>" alt="image"></span> <?php echo  $cat->getName();?>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <?php     $childrenCategories1 = $cat->getChildrenCategories();
+foreach ($childrenCategories1 as $key => $cat1) { ?>
+                                <div class="inner-item">
+                                    <!-- Duft Richtung Section -->
+                                    <h6 class="dropdown-header"><?php echo  $cat1->getName();?></h6>
+<?php  $childrenCategories2 = $cat1->getChildrenCategories();
+foreach ($childrenCategories1 as $key => $cat2) { ?>
+                                    <a class="dropdown-item" href="<?php echo  $cat2->getUrl();?>"><?php echo  $cat2->getName();?></a>
+                                  <?php }?>
+                                </div>
+                    
+                    <?php }?>
+                            </div>
+                        </li>
+<?php }?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span><img src="<?php echo $block->getViewFileUrl('images/logo-apple-ar-svgrepo-com.svg'); ?>" alt="image"></span> MARKEN
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="inner-item">
+                                    <!-- Duft Richtung Section -->
+                                    <h6 class="dropdown-header">Duft Richtung</h6>
+                                    <a class="dropdown-item" href="#">Florale Düfte</a>
+                                    <a class="dropdown-item" href="#">Frische Düfte</a>
+                                    <a class="dropdown-item" href="#">Fruchtige Düfte</a>
+                                    <a class="dropdown-item" href="#">Holzige Düfte</a>
+                                    <a class="dropdown-item" href="#">Orientalische Düfte</a>
+                                </div>
+                                <div class="inner-item">
+                                    <!-- Damendüfte Section -->
+                                    <h6 class="dropdown-header">Damendüfte</h6>
+                                    <a class="dropdown-item" href="#">Top 10 Damendüfte</a>
+                                    <a class="dropdown-item" href="#">Frische Düfte</a>
+                                    <a class="dropdown-item" href="#">Fruchtige Düfte</a>
+                                    <a class="dropdown-item" href="#">Florale Düfte</a>
+                                    <a class="dropdown-item" href="#">Holzige Düfte</a>
+                                    <a class="dropdown-item" href="#">Orientalische Düfte</a>
+                                </div>
+                                <div class="inner-item">
+                                    <!-- Herrendüfte Section -->
+                                    <h6 class="dropdown-header">Herrendüfte</h6>
+                                    <a class="dropdown-item" href="#">Top 10 Herrendüfte</a>
+                                    <a class="dropdown-item" href="#">Frische Düfte</a>
+                                    <a class="dropdown-item" href="#">Fruchtige Düfte</a>
+                                    <a class="dropdown-item" href="#">Florale Düfte</a>
+                                    <a class="dropdown-item" href="#">Holzige Düfte</a>
+                                    <a class="dropdown-item" href="#">Orientalische Düfte</a>
+                                </div>
+                                <div class="inner-item">
+                                    <!-- Nischendüfte Section -->
+                                    <h6 class="dropdown-header">Nischendüfte</h6>
+                                    <a class="dropdown-item" href="#">Nischendüfte Herren</a>
+                                    <a class="dropdown-item" href="#">Nischendüfte Damen</a>
+                                    <a class="dropdown-item" href="#">Unisexdüfte</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#"> <span><img src="<?php echo $block->getViewFileUrl('images/makeup.svg'); ?>" alt="image"></span>
+                                MAKE-UP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <span><img src="<?php echo $block->getViewFileUrl('images/pen-square-svgrepo-com.svg'); ?>"
+                                        alt="image"></span> EXTRAS</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <nav class="navigation aaa" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+        <?php  /* @noEscape */ $_menuHtml?>
+        <?php// $block->getChildHtml() ?>
+    </ul>
+</nav> -->

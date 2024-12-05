@@ -1,0 +1,43 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+
+
+        <form class="form-inline search-bar my-2 my-lg-0" id="search_mini_form" action="<?= $block->escapeUrl($helper->getResultUrl()) ?>" method="get">
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?= $block->escapeUrl($helper->getSuggestUrl())?>",
+                                "destinationSelector":"#search_autocomplete",
+                                "minSearchLength":"<?= $block->escapeHtml($helper->getMinQueryLength()) ?>"}
+                           }'
+                           type="text"
+                           name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+                           value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
+                           placeholder="<?= $block->escapeHtmlAttr(__('Nach Produkten suchen')) ?>"
+                         class="form-control mr-sm-2" 
+                           maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"
+                           aria-expanded="false"/>
+                    <div id="search_autocomplete" class="search-autocomplete"></div> 
+                <button type="submit"
+                    title="<?= $block->escapeHtmlAttr(__('Search')) ?>"
+                  class="btn btn-outline-secondary my-2 my-sm-0"
+                    aria-label="Search"
+                >
+                <i class="fa fa-search" aria-hidden="true"></i>
+                </button> 
+        </form>

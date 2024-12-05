@@ -1,1 +1,324 @@
-<h1 >Home Content</h1>
+  <div class="container">
+ <?= $block->getLayout()->createBlock('Mageplaza\BannerSlider\Block\Widget')->setSliderId(1)->toHtml();?>
+<?php echo $block->getLayout()->createBlock("Devcrew\Brand\Block\BrandTab")->setTemplate("Devcrew_Brand::block/brands.phtml")->toHtml(); ?>
+
+        <div class="row mt-3">
+            <div class="col mb-4 mt-2">
+                <span class="highlight-title text ">Highlights</span>
+            </div>
+        </div>
+        
+         <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('home_highlights')->toHtml();?> 
+
+        <div class="row">
+            <div class="col mb-4 mt-2">
+                <span class="highlight-title text ">Produkte im Trend</span>
+            </div>
+        </div>
+          <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('home_produkte_trend')->toHtml();?> 
+    <?php
+echo $block->getLayout()
+    ->createBlock('Mageplaza\Productslider\Block\Widget\Slider')
+    ->setData([
+        'title' => 'Best Seller',
+        'product_type' => 'new',
+    ])
+    ->toHtml();
+?>
+    </div>
+<!-- <section class="unsere-sec">
+    <div class="container mt-2">
+      <div class="row "> -->
+        
+      <!--   <div class="product-wrapper">
+          <div class="product-labels">Sale</div>
+          <div class="wishlist-icon">
+            <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt="" style="color: black;">
+          </div>
+          <div class="product-image">
+            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+            <div class="product-rating mt-2">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="product-rating-count">(27)</span>
+            </div>
+            <div class="price mt-2 d-flex gap-4">
+              <p class="original-price">84,99€</p>
+              <p class="discounted-price">68,96€</p>
+              <p class="tax-info mx-2 mt-1">inkl</p>
+            </div>
+          </div>
+        </div> -->
+ 
+        <!-- <div class="product-wrapper">
+          <div class="product-labels">Sale</div>
+          <div class="wishlist-icon">
+          <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt="" style="color: black;">
+          </div>
+          <div class="product-image">
+            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+            <div class="product-rating mt-2">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="product-rating-count">(27)</span>
+            </div>
+            <div class="price mt-2 d-flex gap-4">
+              <p class="original-price">84,99€</p>
+              <p class="discounted-price">68,96€</p>
+              <p class="tax-info mx-2 mt-1">inkl</p>
+            </div>
+          </div>
+        </div>
+  -->
+ 
+        <!-- <div class="product-wrapper">
+          <div class="product-labels">Sale</div>
+          <div class="wishlist-icon">
+            <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt="" style="color: black;">
+          </div>
+          <div class="product-image">
+            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+            <div class="product-rating mt-2">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="product-rating-count">(27)</span>
+            </div>
+            <div class="price mt-2 d-flex gap-4">
+              <p class="original-price">84,99€</p>
+              <p class="discounted-price">68,96€</p>
+              <p class="tax-info mx-2 mt-1">inkl</p>
+            </div>
+          </div>
+        </div> -->
+ 
+        <!-- <div class="product-wrapper">
+          <div class="product-labels">Sale</div>
+          <div class="wishlist-icon">
+             <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt="" style="color: black;">
+          </div>
+          <div class="product-image">
+            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+            <div class="product-rating mt-2">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="product-rating-count">(27)</span>
+            </div>
+            <div class="price mt-2 d-flex gap-4">
+              <p class="original-price">84,99€</p>
+              <p class="discounted-price">68,96€</p>
+              <p class="tax-info mx-2 mt-1">inkl</p>
+            </div>
+          </div>
+        </div> -->
+ 
+ 
+        <!-- <div class="product-wrapper">
+          <div class="product-labels">Sale</div>
+          <div class="wishlist-icon">
+             <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt="" style="color: black;">
+          </div>
+          <div class="product-image">
+            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+            <div class="product-rating mt-2">
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span>
+              <span class="product-rating-count">(27)</span>
+            </div>
+            <div class="price mt-2 d-flex gap-4">
+              <p class="original-price">84,99€</p>
+              <p class="discounted-price">68,96€</p>
+              <p class="tax-info mx-2 mt-1">inkl</p>
+            </div>
+          </div>
+        </div> -->
+    <!--   </div>
+ 
+    </div>
+  </section> -->
+    <section class="unsere-sec highlight-section container mt-5">
+        <h2 class="mb-4 yellow-border">Im Fokus</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="highlight-image">
+                    <img src="<?php echo $block->getViewFileUrl('images/TDHEDT.jpg'); ?>" alt="Terre d'Hermes Perfume" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+ 
+                <div class="row">
+                    <div class="product-wrapper">
+                        <div class="product-labels">Sale</div>
+                        <div class="wishlist-icon">
+                            <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt=""
+                                style="color: black;">
+                        </div>
+                        <div class="product-image">
+                            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+                            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover"
+                                class="hover-img">
+                        </div>
+                        <div class="product-info">
+                            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+                            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+                            <div class="product-rating mt-2">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="product-rating-count">(27)</span>
+                            </div>
+                            <div class="price mt-2 d-flex gap-4">
+                                <p class="original-price">84,99€</p>
+                                <p class="discounted-price">68,96€</p>
+                                <p class="tax-info mx-2 mt-1">inkl</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-wrapper">
+                        <div class="product-labels">Sale</div>
+                        <div class="wishlist-icon">
+                             <img src="<?php echo $block->getViewFileUrl('images/favorite_24dp_434343_FILL0_wght400_GRAD0_opsz24.svg'); ?>" alt=""
+                                style="color: black;">
+                        </div>
+                        <div class="product-image">
+                            <img src="<?php echo $block->getViewFileUrl('images/Dior-Sauvage-100ml2-800x800.webp'); ?>" alt="Dior Sauvage" class="main-img">
+                            <img src="<?php echo $block->getViewFileUrl('images/Paco-Rabanne-1-Million2-800x800.webp'); ?>" alt="Dior Sauvage Hover"
+                                class="hover-img">
+                        </div>
+                        <div class="product-info">
+                            <h3>Hermès Terre d’Hermès Eau de Toilette</h3>
+                            <p class="stng mb-0 mt-2 ">Bvlgari </p>
+                            <div class="product-rating mt-2">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="product-rating-count">(27)</span>
+                            </div>
+                            <div class="price mt-2 d-flex gap-4">
+                                <p class="original-price">84,99€</p>
+                                <p class="discounted-price">68,96€</p>
+                                <p class="tax-info mx-2 mt-1">inkl</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+      <section class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="horizontal-divider"></div>
+                    <h2>KaufGeil - Ihr Onlinehändler Für Premiummarken!</h2>
+                    <p>
+                        Sind Sie bereit, in eine Welt voller sinnlicher Eleganz einzutauchen? Kaufgeil präsentiert Ihnen
+                        das ultimative Parfümerie-Erlebnis. Entdecken Sie unsere umfangreiche Auswahl an Spitzenparfums
+                        – von bewährten Klassikern bis hin zu den neuesten Meisterwerken weltberühmter Marken. Stellen
+                        Sie sich vor, wie der feine Hauch eines Chanel-Duftes oder die markante Eleganz eines
+                        Dior-Parfüs Ihr Leben veredelt. Unsere Onlineplattform macht es möglich, diese exquisiten Düfte
+                        nahtlos in Ihren Alltag zu integrieren. Lassen Sie sich von unseren detaillierten
+                        Produktbeschreibungen und den Bewertungen zufriedener Kunden leiten.
+                    </p>
+                    <p>
+                        Auf der Suche nach etwas wirklich Einzigartigem? Unsere exklusiven Limited Editions warten auf
+                        Sie. Ein Parfüm ist mehr als nur ein Zusatz – es ist ein Spiegel Ihrer Persönlichkeit.
+                    </p>
+                    <p>
+                        Warum also Kompromisse eingehen? Tauchen Sie ein in die Welt der Qualität und gönnen Sie sich
+                        den Luxus der besten Marken, den Sie verdienen.
+                    </p>
+                    <p>
+                        Kaufgeil ist Ihr Portal zu einer Welt des Dufterlebnisses. Ihr Traumparfum wartet hier auf Sie –
+                        ergreifen Sie es und lassen Sie sich von einem Hauch von Luxus umgeben!
+                    </p>
+                    <div class="horizontal-divider yellow-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="namhaftesten-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h2>Die namhaftesten und bekanntesten Marken bei uns! </h2>
+                    <p>Kaufgeil hat sich als hochkarätiger Online-Händler für Luxusdüfte etabliert, der eine
+                        beeindruckende Auswahl der bekanntesten Marken wie Dior, Chanel und Yves Saint Laurent anbietet.
+                        Die Produktpalette umfasst das gesamte Spektrum der Duftwelt, von neuesten Düften bis hin zu
+                        klassischen Favoriten – Die namhaftesten und bekanntesten Marken bei uns! Kunden können mit
+                        Leichtigkeit ihren bevorzugten Duft von Giorgio Armani finden, einen Hermès Duft als besonderes
+                        Geschenk auswählen oder sich von der neuesten Lancôme-Kreation verzaubern lassen. Jedes bei
+                        Kaufgeil angebotene Parfüm garantiert höchste Qualität und authentischen Duftcharakter.</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h2>Der perfekte Duft für deinen Geschmack</h2>
+                    <p>Kaufgeil hebt sich auch durch sein Angebot an limitierten Editionen und exklusiven
+                        Duftkollektionen hervor. Kunden haben hier die Möglichkeit, seltene und außergewöhnliche Düfte
+                        zu entdecken. Erhalten Sie den Duft für jeden Geschmack. Dabei ist Kaufgeil nicht nur ein
+                        Online-Shop, sondern eine Plattform, die das ultimative Dufterlebnis verspricht. Sie feiert die
+                        Kunst der Parfümherstellung und ermöglicht es den Kunden, die Welt der Düfte in all ihren
+                        Facetten zu erkunden. Durch die Digitalisierung des Luxusparfümmarktes hat Kaufgeil eine
+                        einzigartige Position eingenommen. Mit einer breiten Produktauswahl, Top-Marken und einer
+                        benutzerfreundlichen Plattform liefert Kaufgeil ein unvergleichliches Einkaufserlebnis. Es ist
+                        ein Paradies für alle Duftliebhaber und solche, die es noch werden wollen.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="newsletter-section mt-5">
+        <div class="container">
+
+<?php echo $this->getLayout()->createBlock("Magento\Newsletter\Block\Subscribe")->setTemplate("Magento_Newsletter::subscribe.phtml")->toHtml();?>
+
+ 
+
+
+          
+        </div>
+    </section>
+
