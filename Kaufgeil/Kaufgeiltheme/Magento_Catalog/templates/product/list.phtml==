@@ -1,0 +1,48 @@
+<div class="products wrapper <?= /* @noEscape */ $viewMode ?> products-<?= /* @noEscape */ $viewMode ?>">
+    <ol class="products list items">
+        <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+        <?php foreach ($_productCollection as $_product): ?>
+        <li class="item product product-item">
+            <div class="product-item-info"
+                 id="product-item-info_<?= /* @noEscape */ $_product->getId() ?>"
+                 data-container="product-<?= /* @noEscape */ $viewMode ?>">
+                <?php
+                $productImage = $block->getImage($_product, $imageDisplayArea);
+                ?>
+                <?php // Product Image ?>
+                <a href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>"
+                   class="product photo product-item-photo"
+                   tabindex="-1">
+                    <?= $productImage->toHtml() ?>
+                </a>
+                <div class="product details product-item-details">
+                    <strong class="product name product-item-name">
+                        <a class="product-item-link"
+                           href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>">
+                            <?= /* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name') ?>
+                        </a>
+                    </strong>
+                    <?= /* @noEscape */ $block->getProductPrice($_product) ?>
+                    <div class="product actions product-item-actions">
+                        <?php if ($_product->isSaleable()): ?>
+                            <form data-role="tocart-form"
+                                  action="<?= $escaper->escapeUrl($postParams['action']) ?>"
+                                  method="post">
+                                <?= $block->getBlockHtml('formkey') ?>
+                                <button type="submit" title="<?= $escaper->escapeHtmlAttr(__('Add to Cart')) ?>"
+                                        class="action tocart primary">
+                                    <span><?= $escaper->escapeHtml(__('Add to Cart')) ?></span>
+                                </button>
+                            </form>
+                        <?php else: ?>
+                            <div class="stock unavailable">
+                                <span><?= $escaper->escapeHtml(__('Out of stock')) ?></span>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <?php endforeach; ?>
+    </ol>
+</div>

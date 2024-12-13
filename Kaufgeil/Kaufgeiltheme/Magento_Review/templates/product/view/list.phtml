@@ -1,0 +1,81 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\Framework\Escaper;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Magento\Review\Block\Product\View\ListView;
+
+/**
+ * @var ListView $block
+ * @var SecureHtmlRenderer $secureRenderer
+ * @var Escaper $escaper
+ */
+
+$_items = $block->getReviewsCollection()->getItems();
+$format = $block->getDateFormat() ?: \IntlDateFormatter::SHORT;
+?>
+<?php if (count($_items)): ?>
+    <div class="block review-list" id="customer-reviews">
+        <div class="block-content">
+            <div class="toolbar review-toolbar">
+                <?= $block->getChildHtml('toolbar') ?>
+            </div>
+            <ol class="items review-items">
+                 <div class="row p-1">
+
+                         
+                <?php foreach ($_items as $_review): ?>
+                       <div class="col-12 col-md-6 p-1 ">
+                         <div class="mt-2 p-1 border">
+                    <li class="item review-item" itemscope itemprop="review" itemtype="http://schema.org/Review">
+                        <div class="review-title" itemprop="name">
+                             <?= $escaper->escapeHtml($_review->getNickname()) ?>
+                        </div>
+                        <?php if (count($_review->getRatingVotes())): ?>
+                            <div class="review-ratings">
+                                <?php foreach ($_review->getRatingVotes() as $_vote): ?>
+                                    <div class="rating-summary item"
+                                         itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                                      
+                                        <div class="rating-result"
+                                             id="review_<?= /* @noEscape */ $_review->getReviewId()
+                                                . '_vote_'
+                                                . $_vote->getVoteId() ?>"
+                                             title="<?= $escaper->escapeHtmlAttr($_vote->getPercent()) ?>%">
+                                            <meta itemprop="worstRating" content="1"/>
+                                            <meta itemprop="bestRating" content="100"/>
+                                            <span>
+                                                <span itemprop="ratingValue">
+                                                    <?= $escaper->escapeHtml($_vote->getPercent()) ?>%
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <?= /* @noEscape */ $secureRenderer->renderStyleAsTag(
+                                            'width:' . $_vote->getPercent() . '%',
+                                            'div#review_' . $_review->getReviewId()
+                                            . '_vote_' . $_vote->getVoteId() . ' span'
+                                        ) ?>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                        <div class="review-content-container">
+                            <div class="review-content" itemprop="description">
+                                <?= /* @noEscape */ nl2br($escaper->escapeHtml($_review->getDetail())) ?>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </div>
+                <?php endforeach; ?>
+            </div>
+            </ol>
+            <div class="toolbar review-toolbar">
+                <?= $block->getChildHtml('toolbar') ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

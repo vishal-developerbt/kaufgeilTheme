@@ -1,3 +1,15 @@
+    <?php echo $this->getLayout()
+      ->createBlock('Magento\Store\Block\Switcher')
+      ->setTemplate('Magento_Store::switch/stores.phtml')
+      ->toHtml(); ?>
+         <?php echo $this->getLayout()
+      ->createBlock('Magento\Store\Block\Switcher')
+      ->setTemplate('Magento_Store::switch/languages.phtml')
+      ->toHtml(); ?>
+         <?php echo $this->getLayout()
+      ->createBlock('Magento\Store\Block\Switcher')
+      ->setTemplate('Magento_Store::switch/flags.phtml')
+      ->toHtml(); ?>
 <!-- Footer -->
      <footer class="footer mt-5">
         <div class="container">
@@ -88,3 +100,5 @@
             </div> -->
         </div>
     </footer>
+
+      

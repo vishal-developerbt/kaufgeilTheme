@@ -60,10 +60,10 @@ $_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit);
                                         alt="image"></span>
                                 START</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><span><img src="<?php echo $block->getViewFileUrl('images/cart-shopping-svgrepo-com.svg'); ?>"
+                     <!--    <li class="nav-item">
+                            <a class="nav-link" href="#"><span><img src="<?php// echo $block->getViewFileUrl('images/cart-shopping-svgrepo-com.svg'); ?>"
                                         alt="image"></span> ALLE PRODUKTE</a>
-                        </li>
+                        </li> -->
 
 <?php foreach ($childrenCategories as $key => $cat) { ?>                        
                     <li class="nav-item dropdown">
@@ -88,14 +88,17 @@ foreach ($childrenCategories1 as $key => $cat2) { ?>
                             </div>
                         </li>
 <?php }?>
-                        <li class="nav-item dropdown">
+ <?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('home-brnad_menu')->toHtml();?> 
+
+
+                     <!--    <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span><img src="<?php echo $block->getViewFileUrl('images/logo-apple-ar-svgrepo-com.svg'); ?>" alt="image"></span> MARKEN
+                                <span><img src="<?php //echo $block->getViewFileUrl('images/logo-apple-ar-svgrepo-com.svg'); ?>" alt="image"></span> MARKEN
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <div class="inner-item">
-                                    <!-- Duft Richtung Section -->
+                                    
                                     <h6 class="dropdown-header">Duft Richtung</h6>
                                     <a class="dropdown-item" href="#">Florale Düfte</a>
                                     <a class="dropdown-item" href="#">Frische Düfte</a>
@@ -104,7 +107,7 @@ foreach ($childrenCategories1 as $key => $cat2) { ?>
                                     <a class="dropdown-item" href="#">Orientalische Düfte</a>
                                 </div>
                                 <div class="inner-item">
-                                    <!-- Damendüfte Section -->
+                                   
                                     <h6 class="dropdown-header">Damendüfte</h6>
                                     <a class="dropdown-item" href="#">Top 10 Damendüfte</a>
                                     <a class="dropdown-item" href="#">Frische Düfte</a>
@@ -114,7 +117,7 @@ foreach ($childrenCategories1 as $key => $cat2) { ?>
                                     <a class="dropdown-item" href="#">Orientalische Düfte</a>
                                 </div>
                                 <div class="inner-item">
-                                    <!-- Herrendüfte Section -->
+                                    
                                     <h6 class="dropdown-header">Herrendüfte</h6>
                                     <a class="dropdown-item" href="#">Top 10 Herrendüfte</a>
                                     <a class="dropdown-item" href="#">Frische Düfte</a>
@@ -124,14 +127,14 @@ foreach ($childrenCategories1 as $key => $cat2) { ?>
                                     <a class="dropdown-item" href="#">Orientalische Düfte</a>
                                 </div>
                                 <div class="inner-item">
-                                    <!-- Nischendüfte Section -->
+                                  
                                     <h6 class="dropdown-header">Nischendüfte</h6>
                                     <a class="dropdown-item" href="#">Nischendüfte Herren</a>
                                     <a class="dropdown-item" href="#">Nischendüfte Damen</a>
                                     <a class="dropdown-item" href="#">Unisexdüfte</a>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item">
 
